@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập - NOT Shopee</title>
+    <link rel="stylesheet" href="LoginForm.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+<body>
+    <div class="header-login">
+        <div class="header-login-left">
+            <img src="image/download.png" class="header-login-logo" alt="Logo">
+        </div>
+        <a href="#" class="header-login-help">Bạn cần giúp đỡ?</a>
+    </div>
+    <div class="login-bg">
+        <div class="login-container">
+            <h2>Đăng nhập</h2>
+            <form class="login-form">
+                <input type="text" placeholder="Tên đăng nhập/Số điện thoại/Email" required>
+                <input type="password" placeholder="Mật khẩu" required>
+                <button class="login-btn" type="submit">ĐĂNG NHẬP</button>
+            </form>
+            <div class="login-options">
+                <a href="#">Quên mật khẩu</a>
+                <a href="#">Đăng nhập với SMS</a>
+            </div>
+            <div class="login-divider">HOẶC</div>
+            <div class="login-social">
+                <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20"> Facebook</button>
+                <button type="button"><img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" width="20"> Google</button>
+            </div>
+            <div class="login-register">
+                Bạn mới biết đến Shopee?
+                <a href="RegisterForm.html">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.querySelector('.login-form input[type="text"]').value.trim();
+            const password = document.querySelector('.login-form input[type="password"]').value.trim();
+            // Chỉ cho phép tài khoản admin và mật khẩu 123456
+            if (username === "admin" && password === "123456") {
+                window.location.href = 'MainForm.html';
+            } else {
+                alert("Tài khoản hoặc mật khẩu không đúng!");
+            }
+        });
+    </script>
+</body>
+</html>

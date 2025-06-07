@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="RegisterForm.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+<body>
+    <div class="header-register">
+        <div class="header-register-left">
+            <img src="image/download.png" class="header-register-logo" alt="Logo">
+        </div>
+        <a href="#" class="header-register-help">Bạn cần giúp đỡ?</a>
+    </div>
+    <div class="register-bg">
+        <div class="register-container">
+            <h2>Đăng ký tài khoản</h2>
+            <form class="register-form">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}">
+
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm-password">Nhập lại mật khẩu</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit" class="register-btn">Đăng ký</button>
+                <p class="register-login-link">Bạn đã có tài khoản? <a href="LoginForm.html">Đăng nhập</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Mật khẩu nhập lại không khớp!");
+                return;
+            }
+            // Lưu thông tin vào localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            alert("Đăng ký thành công! Vui lòng đăng nhập.");
+            window.location.href = 'LoginForm.html';
+        });
+    </script>
+</body>
+</html>
