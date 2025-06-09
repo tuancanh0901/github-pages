@@ -41,8 +41,16 @@
             e.preventDefault();
             const username = document.querySelector('.login-form input[type="text"]').value.trim();
             const password = document.querySelector('.login-form input[type="password"]').value.trim();
-            // Chỉ cho phép tài khoản admin và mật khẩu 123456
-            if (username === "admin" && password === "123456") {
+
+            // Lấy tài khoản đã đăng ký từ localStorage
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+
+            // Cho phép đăng nhập bằng tài khoản admin hoặc tài khoản đã đăng ký
+            if (
+                (username === "admin" && password === "123456") ||
+                (username === savedUsername && password === savedPassword)
+            ) {
                 window.location.href = 'MainForm.html';
             } else {
                 alert("Tài khoản hoặc mật khẩu không đúng!");
