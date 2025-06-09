@@ -34,6 +34,14 @@
             </form>
         </div>
     </div>
+    <!-- Modal thông báo đăng ký thành công -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h3>Đăng ký thành công!</h3>
+            <p>Bạn đã đăng ký tài khoản thành công. Vui lòng đăng nhập.</p>
+            <button id="go-login-btn">Đăng nhập</button>
+        </div>
+    </div>
     <script>
         document.querySelector('.register-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -49,9 +57,63 @@
             // Lưu thông tin vào localStorage
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
-            alert("Đăng ký thành công! Vui lòng đăng nhập.");
-            window.location.href = 'LoginForm.html';
+
+            // Hiện modal thông báo thành công
+            document.getElementById('success-modal').style.display = 'flex';
         });
+
+        // Khi bấm nút Đăng nhập trên modal
+        document.getElementById('go-login-btn').onclick = function() {
+            window.location.href = 'LoginForm.html';
+        };
     </script>
+    <style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0; top: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.3);
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background: #fff;
+        border-radius: 10px;
+        padding: 32px 24px 24px 24px;
+        text-align: center;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+        min-width: 320px;
+        animation: fadeInModal 0.4s;
+    }
+    .modal-content h3 {
+        color: #ee4d2d;
+        margin-bottom: 12px;
+        font-size: 22px;
+    }
+    .modal-content p {
+        color: #444;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    #go-login-btn {
+        background: #ee4d2d;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 32px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    #go-login-btn:hover {
+        background: #ff5722;
+    }
+    @keyframes fadeInModal {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: none;}
+    }
+    </style>
 </body>
 </html>
