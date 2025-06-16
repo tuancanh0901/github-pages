@@ -1,7 +1,12 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Roboto', Arial, sans-serif;
-    background: #fff;
+    background: url('image trang chu/bg-chromehearts.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
 }
 
@@ -38,153 +43,285 @@ body {
     text-decoration: underline;
 }
 
-.login-bg {
-    background: #fff;
-    min-height: calc(100vh - 90px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login-container {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-    width: 400px;
-    padding: 32px 32px 24px 32px;
-    margin: 40px 0;
+.login-center-block, .register-center-block {
+    background: rgba(255,255,255,0.5) !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    padding: 36px 32px 28px 32px;
+    max-width: 410px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    border-top: 4px solid #ee4d2d;
-    animation: fadeIn 0.7s;
+    align-items: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px);}
-    to { opacity: 1; transform: none;}
+.login-logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
-.login-container h2 {
-    margin: 0 0 24px 0;
-    font-size: 24px;
-    font-weight: 500;
+.login-logo img {
+    height: 180px;
+    width: auto;
+    max-width: 95vw;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.login-tab-row, .register-tab-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid #bbb;
+}
+
+.login-tab, .register-tab {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
     color: #222;
-    text-align: left;
+    padding: 12px 32px 10px 0;
+    margin-right: 18px;
+    cursor: pointer;
+    border-bottom: 2.5px solid transparent;
+    transition: color 0.18s, border-bottom 0.18s;
+    letter-spacing: 1px;
+}
+.login-tab.active, .register-tab.active {
+    color: #111;
+    border-bottom: 2.5px solid #111;
+}
+.login-tab:not(.active), .register-tab:not(.active) {
+    color: #888;
+}
+.login-tab:last-child, .register-tab:last-child {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.login-form, .register-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0;
+}
+
+.login-form label, .register-form label {
+    font-family: 'Roboto Medium', 'Roboto', Arial, sans-serif;
+    font-size: 12px;
+    color: #717171;
+    font-weight: 500;
+    margin-bottom: 2px;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .login-form input[type="text"],
-.login-form input[type="password"] {
+.login-form input[type="password"],
+.login-form input[type="email"],
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="email"],
+.register-form input[type="tel"] {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    background: #fafafa;
-    transition: border 0.2s, background 0.2s;
-}
-
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus {
-    border: 1.5px solid #ee4d2d;
-    outline: none;
+    padding: 6px 12px;
+    border: 1.5px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
     background: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: border 0.2s;
+}
+.login-form input:focus, .register-form input:focus {
+    border: 1.5px solid #111;
+    outline: none;
+    background: #fafafa;
 }
 
-.login-btn {
+.login-btn, .register-btn {
+    background: transparent !important;
+    color: #111 !important;
+    border: 2px solid #111 !important;
+    border-radius: 8px;
+    padding: 13px 0;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.login-btn:hover, .register-btn:hover {
+    background: #111 !important;
+    color: #fff !important;
+    border-color: #111 !important;
+}
+
+.forgot {
+    text-align: right;
+    margin-bottom: 0;
+}
+.forgot a {
+    color: #fff;
+    font-size: 0.95rem;
+    text-decoration: underline;
+}
+.login-bottom-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 28px;
+}
+.login-bottom-links a {
+    color: #fff;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+
+/* --- RegisterForm custom style moved from HTML --- */
+.register-center-block {
+    background: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    /* Keep layout properties for spacing */
+    padding: 36px 32px 28px 32px;
+    max-width: 410px;
     width: 100%;
-    background: #ee4d2d;
+    margin: 48px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-form label {
+    font-family: 'Roboto Medium', 'Roboto', Arial, sans-serif !important;
+    font-size: 12px !important;
+    color: #717171 !important;
+    font-weight: 500 !important;
+    margin-bottom: 2px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    background: #fff !important;
+    padding: 6px 12px !important;
+    color: #222;
+    border: 1.5px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Roboto', Arial, sans-serif;
+    transition: border 0.2s;
+}
+.register-form input:focus {
+    border: 1.5px solid #111;
+    outline: none;
+    background: #fafafa;
+}
+.register-btn {
+    width: 100%;
+    background: #111;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 14px 0;
-    font-size: 16px;
+    border-radius: 6px;
+    padding: 13px 0;
+    font-size: 1.08rem;
     font-weight: 700;
+    letter-spacing: 1.5px;
     margin-top: 8px;
     cursor: pointer;
     transition: background 0.2s;
-    box-shadow: 0 2px 8px rgba(238,77,45,0.08);
 }
-
-.login-btn:hover {
-    background: #ff5722;
+.register-btn:hover {
+    background: #222;
 }
-
-.login-options {
-    display: flex;
-    justify-content: space-between;
-    margin: 12px 0 0 0;
-    font-size: 14px;
-}
-
-.login-options a {
-    color: #05a;
-    text-decoration: none;
-    transition: text-decoration 0.2s;
-}
-.login-options a:hover {
-    text-decoration: underline;
-}
-
-.login-divider {
-    display: flex;
-    align-items: center;
+.register-login-link {
+    margin-top: 18px;
     text-align: center;
-    margin: 18px 0 12px 0;
-    color: #bbb;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 1rem;
 }
-.login-divider::before,
-.login-divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #eee;
-    margin: 0 8px;
+.register-login-link a {
+    color: #111;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
 }
-
-.login-social {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 10px;
+.register-login-link a:hover {
+    color: #888;
 }
-.login-social button {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fff;
-    color: #222;
-    font-size: 15px;
-    padding: 10px 0;
+/* --- Menu Dropdown chỉ để chữ, không bảng --- */
+.menu-logo-btn {
+    background: none;
+    border: none;
+    padding: 5px;
     cursor: pointer;
-    transition: border 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
-.login-social button:hover {
-    border: 1.5px solid #ee4d2d;
-    box-shadow: 0 2px 8px rgba(238,77,45,0.08);
+.menu-logo-btn.active {
+    transform: translateX(100px);
 }
-
-.login-register {
-    text-align: center;
-    margin-top: 10px;
-    color: #bbb;
-    font-size: 15px;
+.menu-logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
 }
-.login-register a {
-    color: #ee4d2d;
+.menu-dropdown {
+    position: fixed;
+    left: 20px;
+    top: 70px;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+.menu-dropdown.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.menu-dropdown-link {
+    color: #fff;
     text-decoration: none;
+    padding: 15px 20px;
+    font-size: 14px;
     font-weight: 500;
-    margin-left: 4px;
-    transition: text-decoration 0.2s;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    border-bottom: none;
+    background: transparent;
 }
-.login-register a:hover {
-    text-decoration: underline;
+.menu-dropdown-link:last-child {
+    border-bottom: none;
 }
-
+.menu-dropdown-link:hover {
+    background: #333;
+    color: #ffc324;
+    padding-left: 25px;
+}
+.menu-dropdown::before {
+    display: none;
+}
 @media (max-width: 900px) {
     .login-bg {
         padding: 0 10px;
@@ -197,5 +334,36 @@ body {
     }
     .header-login {
         padding: 0 10px;
+    }
+}
+@media (max-width: 600px) {
+    .login-center-block {
+        min-height: 100vh;
+        padding: 24px 0;
+    }
+    .login-form-container {
+        max-width: 95vw;
+    }
+    .login-logo img {
+        max-width: 120px;
+    }
+    .login-tab-row {
+        gap: 12px;
+    }
+    .menu-dropdown {
+        min-width: 120px;
+        left: 0;
+        right: auto;
+        top: 60px;
+    }
+    .menu-logo-img {
+        height: 32px;
+        width: 32px;
+    }
+}
+@media (max-width: 500px) {
+    .register-center-block {
+        min-width: 0;
+        padding: 18px 6vw 18px 6vw;
     }
 }
