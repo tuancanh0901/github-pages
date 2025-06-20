@@ -63,16 +63,20 @@ body {
     margin-top: 0;
     margin-bottom: 12px;
 }
-
 .login-logo img {
-    height: 180px;
-    width: auto;
-    max-width: 95vw;
-    object-fit: contain;
+    height: 420px;
+    width: 420px;
+    max-width: 90vw;
     display: block;
-    margin: 0;
-    padding: 0;
-    border: none;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .login-logo img {
+        height: 180px;
+        width: auto;
+        max-width: 95vw;
+    }
 }
 
 .login-tab-row, .register-tab-row {
@@ -301,7 +305,7 @@ body {
     transform: translateY(0);
 }
 .menu-dropdown-link {
-    color: #fff;
+    color: #111 !important;
     text-decoration: none;
     padding: 15px 20px;
     font-size: 14px;
@@ -311,12 +315,9 @@ body {
     border-bottom: none;
     background: transparent;
 }
-.menu-dropdown-link:last-child {
-    border-bottom: none;
-}
 .menu-dropdown-link:hover {
-    background: #333;
-    color: #ffc324;
+    background: #fff;
+    color: #111 !important;
     padding-left: 25px;
 }
 .menu-dropdown::before {

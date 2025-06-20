@@ -3,131 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <title>CC3M - Trang chủ</title>
-    <link rel="stylesheet" href="MainForm.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="LoginForm.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100vw;
+            background: url('image trang chu/ChatGPT Image 14_45_33 14 thg 6, 2025.png') center center/cover no-repeat;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .ch-logo {
+            position: absolute;
+            left: 50%;
+            top: 32px;
+            transform: translateX(-50%);
+            width: 420px;
+            max-width: 90vw;
+            z-index: 10;
+        }
+        .ch-loginbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 32px 40px 0 0;
+            z-index: 20;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: #111;
+        }
+        .ch-loginbar span {
+            margin: 0 8px;
+        }
+        .ch-icon {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 20;
+            font-size: 40px;
+            color: #111;
+            cursor: pointer;
+        }
+        .ch-footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 24px 18px 18px;
+            font-size: 15px;
+            color: #444;
+            font-family: 'Montserrat', Arial, sans-serif;
+            z-index: 10;
+        }
+        .ch-footer-left, .ch-footer-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .ch-footer-right img {
+            height: 22px;
+            margin-left: 8px;
+        }
+        @media (max-width: 600px) {
+            .ch-logo { width: 90vw; }
+            .ch-loginbar { font-size: 15px; padding: 18px 10px 0 0; }
+            .ch-icon { top: 12px; left: 10px; font-size: 28px; }
+            .ch-footer { font-size: 12px; padding: 0 6px 8px 6px; }
+        }
+        .menu-dropdown {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .menu-dropdown-link {
+            padding: 12px 16px;
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .menu-dropdown-link:hover {
+            background: #f0f0f0;
+        }
+        .menu-logo-btn {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 20;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <!-- Topbar -->
-    <div class="topbar" style="height: 32px; align-items: center; padding-bottom: 0; font-size: 15px;">
-        <div class="topbar-left">
-            <span class="material-icons">call</span> Hotline: 0981.956.116
-            <span class="material-icons">email</span> Email: support@cc3m.vn
+    <img class="ch-logo" src="image trang chu/logocaychoi3m.png" alt="Logo" />
+    <div class="ch-loginbar">
+        <span id="login-btn" style="cursor:pointer;">LOGIN</span>
+        <span>/</span>
+        <span id="bag-btn" style="cursor:pointer;">BAG 0</span>
+    </div>
+    <div class="ch-footer">
+        <div class="ch-footer-left">
+            <span>TERMS</span>
+            <span>CA SUPPLY CHAIN ACT</span>
+            <span>PRIVACY</span>
         </div>
-        <div class="topbar-right">
-            VẬN CHUYỂN TOÀN QUỐC
-            <span class="topbar-divider">|</span>
-            <span class="material-icons">location_on</span> Hệ thống cửa hàng
+        <div class="ch-footer-right">
+            <span>GENERAL</span>
+            <span>CONTACT</span>
+            <span>VN</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN flag" />
         </div>
     </div>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="navbar-left" style="position:relative;">
-            <button class="menu-logo-btn" id="menuLogoBtn">
-                <img src="image trang chu/logomenudropblack.png" alt="Menu Logo" class="menu-logo-img">
-            </button>
-            <div class="menu-dropdown" id="menuDropdown">
-                <a href="#" class="menu-dropdown-link">SHOP</a>
-                <a href="#" class="menu-dropdown-link">LOCATIONS</a>
-                <a href="#" class="menu-dropdown-link">MAGAZINE</a>
-                <a href="#" class="menu-dropdown-link">LOGIN</a>
-            </div>
-        </div>
-        <div class="navbar-center">
-            <img src="image trang chu/96446d8c-3162-43d4-826d-8d7edd7d0232-Photoroom (1).png" alt="Logo" style="height:140px; width:auto; display:block; margin:0 auto; vertical-align:middle;">
-        </div>
-        <div class="navbar-right">
-            <span id="login-btn" style="font-weight: bold; font-size: 16px; letter-spacing: 0.5px; cursor:pointer; margin-right:8px;">LOGIN</span>
-            <span style="font-weight: bold; font-size: 16px; letter-spacing: 0.5px; margin: 0 8px;">/</span>
-            <span id="bag-btn" style="font-weight: bold; font-size: 16px; letter-spacing: 0.5px;">BAG 0</span>
-        </div>
-    </div>
-    <!-- Banner -->
-    <div class="main-banner">
-        <div class="banner-slider">
-            <div class="slide fade active">
-                <img src="image trang chu/anhmain1.jpg" alt="Slide 1" class="slide-img">
-            </div>
-            <div class="slide fade">
-                <img src="image trang chu/anhmain2.jpg" alt="Slide 2" class="slide-img">
-            </div>
-            <div class="slide fade">
-                <img src="image trang chu/anhmain3.jpg" alt="Slide 3" class="slide-img">
-            </div>
-            <div class="dots" style="display:none;"></div>
-        </div>
+    <button class="menu-logo-btn" id="menuLogoBtn" style="position: fixed; top: 32px; left: 32px; z-index: 20;">
+        <img src="image trang chu/logomenudropblack.png" alt="Menu Logo" class="menu-logo-img">
+    </button>
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="#" class="menu-dropdown-link">SHOP</a>
+        <a href="#" class="menu-dropdown-link">LOCATIONS</a>
+        <a href="#" class="menu-dropdown-link">MAGAZINE</a>
+        <a href="#" class="menu-dropdown-link">LOGIN</a>
     </div>
     <script>
-    let slideIndex = 0;
-    let slides = document.getElementsByClassName("slide");
-    function showSlidesAuto() {
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove('active');
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].classList.add('active');
-        setTimeout(showSlidesAuto, 6000); // Chuyển động chậm và mượt hơn
-    }
-    showSlidesAuto();
-    // Sự kiện chuyển trang khi bấm LOGIN
-    document.getElementById('login-btn').addEventListener('click', function() {
-        window.location.href = 'LoginForm.html';
-    });
-    // Sự kiện cho BAG (nếu cần chuyển trang khác, thêm tại đây)
-    // document.getElementById('bag-btn').addEventListener('click', function() {
-    //     window.location.href = 'Bag.html';
-    // });    // Menu dropdown logic
-    const menuLogoBtn = document.getElementById('menuLogoBtn');
-    const menuDropdown = document.getElementById('menuDropdown');
-    let menuOpen = false;
-
-    function closeMenu() {
-        menuOpen = false;
-        menuLogoBtn.classList.remove('active');
-        menuDropdown.classList.remove('active');
-        setTimeout(() => {
-            menuDropdown.style.display = 'none';
-        }, 300);
-    }
-
-    function openMenu() {
-        menuOpen = true;
-        menuLogoBtn.classList.add('active');
-        menuDropdown.style.display = 'flex';
-        // Kích hoạt animation
-        requestAnimationFrame(() => {
-            menuDropdown.classList.add('active');
+        document.getElementById('login-btn').addEventListener('click', function() {
+            window.location.href = 'LoginForm.html';
         });
-    }
-
-    menuLogoBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (menuOpen) {
-            closeMenu();
-        } else {
-            openMenu();
+        document.getElementById('bag-btn').addEventListener('click', function() {
+            alert('Chức năng BAG chưa được phát triển!');
+        });
+        // Menu dropdown logic giống LoginForm
+        const menuLogoBtn = document.getElementById('menuLogoBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+        let menuOpen = false;
+        function closeMenu() {
+            menuOpen = false;
+            menuLogoBtn.classList.remove('active');
+            menuDropdown.classList.remove('active');
+            setTimeout(() => {
+                menuDropdown.style.display = 'none';
+            }, 300);
         }
-    });
-
-    // Click bên ngoài để đóng menu
-    document.addEventListener('click', function(e) {
-        if (menuOpen && !menuDropdown.contains(e.target) && !menuLogoBtn.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    // Thêm sự kiện cho nút LOGIN trong menu dropdown
-    document.querySelectorAll('.menu-dropdown-link').forEach(function(link) {
-        if (link.textContent.trim().toUpperCase() === 'LOGIN') {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = 'LoginForm.html';
+        function openMenu() {
+            menuOpen = true;
+            menuLogoBtn.classList.add('active');
+            menuDropdown.style.display = 'flex';
+            requestAnimationFrame(() => {
+                menuDropdown.classList.add('active');
             });
         }
-    });
+        menuLogoBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (menuOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+        document.addEventListener('click', function(e) {
+            if (menuOpen && !menuDropdown.contains(e.target) && !menuLogoBtn.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        document.querySelectorAll('.menu-dropdown-link').forEach(function(link) {
+            if (link.textContent.trim().toUpperCase() === 'LOGIN') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'LoginForm.html';
+                });
+            }
+        });
     </script>
-    <!-- Nền hình ảnh toàn trang -->
-    <div class="background-image"></div>
 </body>
 </html>
