@@ -25,14 +25,13 @@
 }
 .product-img {
     width: 100%;
-    max-width: 240px;
-    height: 200px;
+    height: 400px;
+    max-width: 400px;
     object-fit: contain;
-    margin: 0 auto;
-    display: block;
     background: transparent;
-    box-shadow: none;
-    border: none;
+    margin-top: 24px;
+    margin-bottom: 0;
+    display: block;
 }
 .product-title {
     font-family: 'Montserrat', sans-serif;
@@ -745,20 +744,22 @@ body > *:not(.background-image) {
     overflow: visible;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: none;
+    align-items: stretch;
+    justify-content: space-between;
     min-width: 240px;
     max-width: 340px;
     margin: 0 auto;
     border: none;
     backdrop-filter: none;
+    height: 540px; /* Đặt chiều cao cố định cho card */
 }
 .product-card:hover {
     box-shadow: none;
 }
 .product-img {
     width: 100%;
-    height: 180px;
+    height: 370px;
+    max-width: 370px;
     object-fit: contain;
     background: transparent;
     margin-top: 24px;
@@ -766,7 +767,10 @@ body > *:not(.background-image) {
     display: block;
 }
 .product-info {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background: transparent;
     border-top: none;
@@ -774,6 +778,7 @@ body > *:not(.background-image) {
     text-align: center;
     border-radius: 0;
     box-sizing: border-box;
+    height: 120px;
 }
 .product-title {
     font-family: 'Montserrat', sans-serif;
@@ -793,14 +798,4 @@ body > *:not(.background-image) {
 }
 .product-btn {
     display: none;
-}
-@media (max-width: 600px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 24px 6vw 80px 6vw;
-    }
-    .product-img {
-        height: 160px;
-    }
 }
