@@ -260,35 +260,29 @@
             });
             addToBagBtn.addEventListener('click', function() {
                 if (!addToBagBtn.disabled) {
-                    // Lưu sản phẩm vào localStorage với từng size
+                    // Lưu sản phẩm vào localStorage dạng mảng (bag_items)
                     const size = sizeSelect.value;
-                    let bag = JSON.parse(localStorage.getItem('bag') || '{}');
-                    if (!bag[size]) bag[size] = 0;
-                    bag[size]++;
-                    localStorage.setItem('bag', JSON.stringify(bag));
-                    // Tính tổng số sản phẩm
-                    let total = 0;
-                    for (const s in bag) total += bag[s];
+                    let bag = JSON.parse(localStorage.getItem('bag_items') || '[]');
+                    bag.push({ name: 'Double Floral', size: size, qty: 1 });
+                    localStorage.setItem('bag_items', JSON.stringify(bag));
                     // Cập nhật hiển thị BAG
                     const bagBtn = document.getElementById('bag-btn');
                     if (bagBtn) {
-                        bagBtn.textContent = 'BAG ' + total;
+                        bagBtn.textContent = 'BAG ' + bag.length;
                     }
                     // Reset chọn size
                     sizeSelect.value = '';
                     addToBagBtn.disabled = true;
                 }
             });
-        // Khi load trang, cập nhật số lượng BAG nếu có
-        window.addEventListener('DOMContentLoaded', function() {
-            const bagBtn = document.getElementById('bag-btn');
-            let bag = JSON.parse(localStorage.getItem('bag') || '{}');
-            let total = 0;
-            for (const s in bag) total += bag[s];
-            if (bagBtn) {
-                bagBtn.textContent = 'BAG ' + total;
-            }
-        });
+            // Khi load trang, cập nhật số lượng BAG nếu có
+            window.addEventListener('DOMContentLoaded', function() {
+                const bagBtn = document.getElementById('bag-btn');
+                let bag = JSON.parse(localStorage.getItem('bag_items') || '[]');
+                if (bagBtn) {
+                    bagBtn.textContent = 'BAG ' + bag.length;
+                }
+            });
         }
         // Menu dropdown logic giống LoginForm
         const menuLogoBtn = document.getElementById('menuLogoBtn');
