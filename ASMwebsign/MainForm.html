@@ -175,10 +175,16 @@
             }
         });
         document.querySelectorAll('.menu-dropdown-link').forEach(function(link) {
-            if (link.textContent.trim().toUpperCase() === 'LOGIN') {
+            const text = link.textContent.trim().toUpperCase();
+            if (text === 'LOGIN') {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     window.location.href = 'LoginForm.html';
+                });
+            } else if (text === 'SHOP') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'ShopForm.html';
                 });
             }
         });
