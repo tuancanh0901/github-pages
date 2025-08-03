@@ -250,7 +250,7 @@
                 <img src="image trang chu/logomenudropblack.png" alt="Menu Logo" class="menu-logo-img">
             </button>
             <div class="menu-dropdown" id="menuDropdown">
-                <a href="#" class="menu-dropdown-link">SHOP</a>
+                <a href="ShopForm.html" class="menu-dropdown-link" id="shop-link">SHOP</a>
                 <a href="#" class="menu-dropdown-link">LOCATIONS</a>
                 <a href="#" class="menu-dropdown-link">MAGAZINE</a>
                 <a href="#" class="menu-dropdown-link">LOGIN</a>
@@ -287,6 +287,7 @@
                 (username === "admin" && password === "123456") ||
                 (username === savedUsername && password === savedPassword)
             ) {
+                if (typeof cc3mLoginSuccess === 'function') cc3mLoginSuccess();
                 window.location.href = 'MainForm.html';
             } else {
                 alert("Tài khoản hoặc mật khẩu không đúng!");

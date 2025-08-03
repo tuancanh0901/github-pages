@@ -5,6 +5,7 @@
     <title>CC3M - Trang chủ</title>
     <link rel="stylesheet" href="LoginForm.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <script src="cc3m-shop.js"></script>
     <style>
         body {
             margin: 0;
@@ -55,7 +56,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 0 24px 18px 18px;
+            padding: 0 24px 32px 18px;
             font-size: 15px;
             color: #444;
             font-family: 'Montserrat', Arial, sans-serif;
@@ -69,6 +70,13 @@
         .ch-footer-right img {
             height: 22px;
             margin-left: 8px;
+            margin-bottom: 8px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0 0 0 2px #fff;
+            display: inline-block;
+            vertical-align: middle;
         }
         @media (max-width: 600px) {
             .ch-logo { width: 90vw; }
@@ -119,75 +127,13 @@
             <span>PRIVACY</span>
         </div>
         <div class="ch-footer-right">
-            <span>GENERAL</span>
-            <span>CONTACT</span>
+            <a href="Contact.html" style="color:inherit;text-decoration:none;cursor:pointer;font-family:inherit;font-size:inherit;font-weight:inherit;">CONTACT</a>
             <span>VN</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN flag" />
         </div>
     </div>
     <button class="menu-logo-btn" id="menuLogoBtn" style="position: fixed; top: 32px; left: 32px; z-index: 20;">
         <img src="image trang chu/logomenudropblack.png" alt="Menu Logo" class="menu-logo-img">
     </button>
-    <div class="menu-dropdown" id="menuDropdown">
-        <a href="#" class="menu-dropdown-link">SHOP</a>
-        <a href="#" class="menu-dropdown-link">LOCATIONS</a>
-        <a href="#" class="menu-dropdown-link">MAGAZINE</a>
-        <a href="#" class="menu-dropdown-link">LOGIN</a>
-    </div>
-    <script>
-        document.getElementById('login-btn').addEventListener('click', function() {
-            window.location.href = 'LoginForm.html';
-        });
-        document.getElementById('bag-btn').addEventListener('click', function() {
-            alert('Chức năng BAG chưa được phát triển!');
-        });
-        // Menu dropdown logic giống LoginForm
-        const menuLogoBtn = document.getElementById('menuLogoBtn');
-        const menuDropdown = document.getElementById('menuDropdown');
-        let menuOpen = false;
-        function closeMenu() {
-            menuOpen = false;
-            menuLogoBtn.classList.remove('active');
-            menuDropdown.classList.remove('active');
-            setTimeout(() => {
-                menuDropdown.style.display = 'none';
-            }, 300);
-        }
-        function openMenu() {
-            menuOpen = true;
-            menuLogoBtn.classList.add('active');
-            menuDropdown.style.display = 'flex';
-            requestAnimationFrame(() => {
-                menuDropdown.classList.add('active');
-            });
-        }
-        menuLogoBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (menuOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-        document.addEventListener('click', function(e) {
-            if (menuOpen && !menuDropdown.contains(e.target) && !menuLogoBtn.contains(e.target)) {
-                closeMenu();
-            }
-        });
-        document.querySelectorAll('.menu-dropdown-link').forEach(function(link) {
-            const text = link.textContent.trim().toUpperCase();
-            if (text === 'LOGIN') {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'LoginForm.html';
-                });
-            } else if (text === 'SHOP') {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'ShopForm.html';
-                });
-            }
-        });
-    </script>
+    <div class="menu-dropdown" id="menuDropdown"></div>
 </body>
 </html>

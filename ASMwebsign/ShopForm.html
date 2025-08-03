@@ -5,6 +5,7 @@
     <title>CC3M - Trang chủ</title>
     <link rel="stylesheet" href="LoginForm.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <script src="cc3m-shop.js"></script>
     <style>
         body {
             margin: 0;
@@ -13,6 +14,9 @@
             width: 100vw;
             background: url('image trang chu/ChatGPT Image 14_45_33 14 thg 6, 2025.png') center center/cover no-repeat fixed;
             font-family: 'Montserrat', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .ch-loginbar {
             position: fixed;
@@ -197,7 +201,7 @@
         <a href="#" class="menu-dropdown-link">LOGIN</a>
     </div>
     <!-- Phần sản phẩm dạng lưới, scroll dọc -->
-    <main class="product-grid">
+    <main class="product-grid" style="margin-top:120px; margin-bottom:48px;">
         <div class="product-card">
             <a href="Product1.html" style="text-decoration:none;color:inherit;">
                 <img src="image trang chu/DBFloral.png" alt="Double Floral" class="product-img">
@@ -235,54 +239,6 @@
             </a>
         </div>
     </main>
-    <script>
-        document.getElementById('login-btn').addEventListener('click', function() {
-            window.location.href = 'LoginForm.html';
-        });
-        document.getElementById('bag-btn').addEventListener('click', function() {
-            alert('Chức năng BAG chưa được phát triển!');
-        });
-        // Menu dropdown logic giống LoginForm
-        const menuLogoBtn = document.getElementById('menuLogoBtn');
-        const menuDropdown = document.getElementById('menuDropdown');
-        let menuOpen = false;
-        function closeMenu() {
-            menuOpen = false;
-            menuLogoBtn.classList.remove('active');
-            menuDropdown.classList.remove('active');
-            setTimeout(() => {
-                menuDropdown.style.display = 'none';
-            }, 300);
-        }
-        function openMenu() {
-            menuOpen = true;
-            menuLogoBtn.classList.add('active');
-            menuDropdown.style.display = 'flex';
-            requestAnimationFrame(() => {
-                menuDropdown.classList.add('active');
-            });
-        }
-        menuLogoBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (menuOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-        document.addEventListener('click', function(e) {
-            if (menuOpen && !menuDropdown.contains(e.target) && !menuLogoBtn.contains(e.target)) {
-                closeMenu();
-            }
-        });
-        document.querySelectorAll('.menu-dropdown-link').forEach(function(link) {
-            if (link.textContent.trim().toUpperCase() === 'LOGIN') {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'LoginForm.html';
-                });
-            }
-        });
-    </script>
+    <!-- Script đã chuyển sang cc3m-shop.js -->
 </body>
 </html>

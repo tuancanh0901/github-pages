@@ -662,3 +662,10 @@ body > *:not(.background-image) {
     position: relative;
     z-index: 1;
 }
+
+.ch-footer-left, .ch-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    justify-content: center;
+}
